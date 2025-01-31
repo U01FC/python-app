@@ -26,14 +26,14 @@ jobs:
 
     - name: Install SonarScanner
       run: |
-        pip install sonar-scanner-cli
+        pip install pysonar-scanner
 
     - name: Run SonarQube Analysis
       env:
         SONAR_HOST_URL: ${{ secrets.SONAR_HOST_URL }}
         SONAR_TOKEN: ${{ secrets.SONAR_TOKEN }}
       run: |
-        sonar-scanner \
+        pysonar-scanner \
           -Dsonar.sources=. \
           -Dsonar.python.version=3.10 \
           -Dsonar.exclusions=tests/** \
